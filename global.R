@@ -47,8 +47,7 @@ college_VORP = drafts %>% group_by(college) %>%
   filter(total_picks >= 7)
 
 team_VORP = drafts %>% group_by(team) %>%
-  summarise(total_picks = n(), VORP = round(sum(vorp),2), avg_VORP = round((VORP/n()), 2), expected_vorp = round(sum(expected_vorp), 2), vorp_diff = round((VORP - expected_vorp),2)) %>%
-  filter(total_picks >= 42)
+  summarise(total_picks = n(), VORP = round(sum(vorp),2), avg_VORP = round((VORP/n()), 2), expected_vorp = round(sum(expected_vorp), 2), vorp_diff = round((VORP - expected_vorp),2))
 
 lottery_VORP = drafts %>% group_by(lottery) %>%
   summarise(total_picks = n(), VORP = round(sum(vorp),2), avg_VORP = round((VORP/n()), 2), expected_vorp = round(sum(expected_vorp), 2), vorp_diff = round((VORP - expected_vorp),2))

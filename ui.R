@@ -10,24 +10,24 @@ shinyUI(dashboardPage(
       menuItem('Pick Value by Team', tabName = 'item4', icon = icon('Pick Value by Team'))
   ),
     selectizeInput('selected', 'Select Visualization:', choice = c('Graph', 'Dataset')),
-    selectizeInput('selected1', 'Sort By:', choice = c('VORP', 'avg_VORP', 'vorp_diff'))
+    selectizeInput('selected1', 'Sort By:', choice = c('Value Over Replacement' = 'VORP', 'Average Value Over Replacement' = 'avg_VORP', 'Differential in Value Over Replacement' = 'vorp_diff'))
   ),
   dashboardBody(
     tabItems(
       tabItem(tabName = 'item1',
               fluidPage(dataTableOutput('table1')),
-              fluidPage(plotOutput('graph1')),
+              fillPage(tags$style(type = "text/css", "#graph1 {height: calc(100vh - 80px) !important;}"),plotOutput('graph1'),height='100%'),
               
     ),
     tabItem(tabName = 'item2',
             fluidPage(dataTableOutput('table2')),
-            fluidPage(plotOutput('graph2'))),
+            fillPage(tags$style(type = "text/css", "#graph2 {height: calc(100vh - 80px) !important;}"),plotOutput('graph2'),height='100%')),
     tabItem(tabName = 'item3',
             fluidPage(dataTableOutput('table3')),
-            fluidPage(plotOutput('graph3'))),
+            fillPage(tags$style(type = "text/css", "#graph3 {height: calc(100vh - 80px) !important;}"),plotOutput('graph3'),height='100%')),
     tabItem(tabName = 'item4',
             fluidPage(dataTableOutput('table4')),
-            fluidPage(plotOutput('graph4')))
+            fillPage(tags$style(type = "text/css", "#graph4 {height: calc(100vh - 80px) !important;}"),plotOutput('graph4'),height='100%'))
     
     
   )

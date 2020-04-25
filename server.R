@@ -91,7 +91,7 @@ shinyServer(function(input, output) {
   output$graph1 = renderPlot({
     if (input$selected == 'Graph') {
       if (input$selected1 == 'vorp_diff') {
-        ggplot(team_VORP, aes(x = team, y = vorp_diff)) + geom_col(aes(fill = team)) + coord_flip() + ggtitle("VORP Differential based on Expected VORP by Team")
+        ggplot(team_VORP, aes(x = team, y = vorp_diff)) + geom_col(aes(fill = team)) + coord_flip() + ggtitle("Differential in Value based on Expected VORP by Team")
       }
       else if (input$selected1 == 'VORP') {
         ggplot(team_VORP, aes(x = team, y = VORP)) + geom_col(aes(fill = team)) + coord_flip() + ggtitle("Draft Production by Team")
@@ -105,13 +105,13 @@ shinyServer(function(input, output) {
   output$graph2 = renderPlot({
     if (input$selected == 'Graph') {
       if (input$selected1 == 'vorp_diff') {
-        ggplot(college_VORP, aes(x = college, y = vorp_diff)) + geom_col(aes(fill = college)) + coord_flip() + theme(legend.position = 'bottom')
+        ggplot(college_VORP, aes(x = college, y = vorp_diff)) + geom_col(aes(fill = college)) + coord_flip() + theme(legend.position = 'bottom') + ggtitle('Differential in Value based on Expected VORP by College')
       }
       else if (input$selected1 == 'VORP') {
-        ggplot(college_VORP, aes(x = college, y = VORP)) + geom_col(aes(fill = college)) + coord_flip() + theme(legend.position = 'bottom')
+        ggplot(college_VORP, aes(x = college, y = VORP)) + geom_col(aes(fill = college)) + coord_flip() + theme(legend.position = 'bottom') + ggtitle('Value put out by College')
       }
       else if (input$selected1 == 'avg_VORP') {
-        ggplot(college_VORP, aes(x = college, y = avg_VORP)) + geom_col(aes(fill = college)) + coord_flip() + theme(legend.position = 'bottom')
+        ggplot(college_VORP, aes(x = college, y = avg_VORP)) + geom_col(aes(fill = college)) + coord_flip() + theme(legend.position = 'bottom') + ggtitle('Average Value put out by College')
       } 
     }  
   })
@@ -119,13 +119,13 @@ shinyServer(function(input, output) {
   output$graph3 = renderPlot({
     if (input$selected == 'Graph') {
       if (input$selected1 == 'vorp_diff') {
-        ggplot(pick_VORP, aes(x = pick, y = vorp_diff)) + geom_point() + geom_text(aes(label=pick), hjust = -.2, vjust = -.2) + theme(legend.position = 'bottom')
+        ggplot(pick_VORP, aes(x = pick, y = vorp_diff)) + geom_point() + geom_text(aes(label=pick), hjust = -.2, vjust = -.2) + theme(legend.position = 'bottom') + ggtitle('Differential in Value based on Expected VORP by Draft Pick')
       }
       else if (input$selected1 == 'VORP') {
-        ggplot(pick_VORP, aes(x = pick, y = VORP)) + geom_point() + geom_text(aes(label=pick), hjust = -.2, vjust = -.2) +  theme(legend.position = 'bottom')
+        ggplot(pick_VORP, aes(x = pick, y = VORP)) + geom_point() + geom_text(aes(label=pick), hjust = -.2, vjust = -.2) +  theme(legend.position = 'bottom') + ggtitle('Production by Draft Pick')
       }
       else if (input$selected1 == 'avg_VORP') {
-        ggplot(pick_VORP, aes(x = pick, y = avg_VORP)) + geom_point() + geom_text(aes(label=pick), hjust = -.2, vjust = -.2) + theme(legend.position = 'bottom')
+        ggplot(pick_VORP, aes(x = pick, y = avg_VORP)) + geom_point() + geom_text(aes(label=pick), hjust = -.2, vjust = -.2) + theme(legend.position = 'bottom') + ggtitle('Average Production by Draft Pick')
       } 
     }  
   })
@@ -133,13 +133,13 @@ shinyServer(function(input, output) {
   output$graph4 = renderPlot({
     if (input$selected == 'Graph') {
       if (input$selected1 == 'vorp_diff') {
-        ggplot(pick_by_team, aes(x = pick, y = vorp_diff)) + geom_col(aes(fill = team), position = 'dodge') + theme(legend.position = 'bottom') + coord_flip()
+        ggplot(pick_by_team, aes(x = pick, y = vorp_diff)) + geom_point(aes(color = team)) + geom_text(aes(label = team)) + theme(legend.position = 'bottom') + ggtitle('Differential in Value based on Expected VORP by Teams at certain Draft Positions')
       }
       else if (input$selected1 == 'VORP') {
-        ggplot(pick_by_team, aes(x = pick, y = VORP)) + geom_col(aes(fill = team), position = 'dodge') + theme(legend.position = 'bottom') + coord_flip()
+        ggplot(pick_by_team, aes(x = pick, y = VORP)) + geom_point(aes(color = team)) + geom_text(aes(label = team)) + theme(legend.position = 'bottom') + ggtitle('Production by Teams at certain Draft Picks')
         }
       else if (input$selected1 == 'avg_VORP') {
-        ggplot(pick_by_team, aes(x = pick, y = avg_VORP)) + geom_col(aes(fill = team), position = 'dodge') + theme(legend.position = 'bottom') + coord_flip()
+        ggplot(pick_by_team, aes(x = pick, y = avg_VORP)) + geom_point(aes(color = team)) + geom_text(aes(label = team)) + theme(legend.position = 'bottom') + ggtitle('Average Producton by Teams at certain Draft Picks')
       } 
     }  
   })
