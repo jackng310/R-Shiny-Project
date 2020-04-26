@@ -39,7 +39,7 @@ shinyUI(dashboardPage(skin = 'black',
       choice = c(
         'Value Over Replacement' = 'VORP',
         'Average Value Over Replacement' = 'avg_VORP',
-        'Differential in Value Over Replacement' = 'vorp_diff'
+        'DValue Over Replacement Differential' = 'vorp_diff'
       )
     ),
     selectizeInput(
@@ -50,9 +50,9 @@ shinyUI(dashboardPage(skin = 'black',
   ),
   dashboardBody(tabItems(
     tabItem(
-      tabName = 'item1', h1('DRAFT PRODUCTION BY TEAM'),
+      tabName = 'item1', h1('DRAFT PRODUCTION BY TEAM',style="line-height: 0px;margin-top: 0;"),
       fluidRow(dataTableOutput('table1')),
-      fillPage(
+      fluidPage(
         tags$style(type = "text/css", "#graph1 {height: calc(100vh - 80px) !important;}"),
         plotOutput('graph1'),
         height = '100%'
@@ -60,27 +60,27 @@ shinyUI(dashboardPage(skin = 'black',
       
     ),
     tabItem(
-      tabName = 'item2', h1('DRAFT PRODUCTION BY COLLEGE'),
+      tabName = 'item2', h1('DRAFT PRODUCTION BY COLLEGE',style="line-height: 0px;margin-top: 0;"),
       fluidRow(dataTableOutput('table2')),
-      fillPage(
+      fluidPage(
         tags$style(type = "text/css", "#graph2 {height: calc(100vh - 80px) !important;}"),
         plotOutput('graph2'),
         height = '100%'
       )
     ),
     tabItem(
-      tabName = 'item3', h1('VALUE BY DRAFT POSITION'),
+      tabName = 'item3', h1('VALUE BY DRAFT POSITION',style="line-height: 0px;margin-top: 0;"),
       fluidRow(dataTableOutput('table3')),
-      fillPage(
+      fluidPage(
         tags$style(type = "text/css", "#graph3 {height: calc(100vh - 80px) !important;}"),
         plotOutput('graph3'),
         height = '100%'
       )
     ),
     tabItem(
-      tabName = 'item4', h1('PICK VALUE BY TEAM'),
+      tabName = 'item4', h1('PICK VALUE BY TEAM',style="line-height: 0px;margin-top: 0;"),
       fluidRow(dataTableOutput('table4')),
-      fillPage(
+      fluidPage(
         tags$style(type = "text/css", "#graph4 {height: calc(100vh - 80px) !important;}"),
         plotOutput('graph4'),
         height = '100%'
