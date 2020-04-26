@@ -1,34 +1,92 @@
 
-shinyUI(dashboardPage(
-  dashboardHeader(title="Value of a Draft Pick"),
+
+shinyUI(dashboardPage(skin = 'black',
+  dashboardHeader(title = span("Value of an", 
+                               span("NBA DRAFT PICK", 
+                                    style = "color: red; font-size: 13px"))),
   dashboardSidebar(
-    sidebarUserPanel("NBA Drafts"),
+    sidebarUserPanel("NBA Draft Data from 1989-2016"),
     sidebarMenu(
-      menuItem('Draft Production by Team', tabName = 'item1', icon = icon('Draft Production by Team')),
-      menuItem('Draft Production by College', tabName = 'item2', icon = icon('Draft Production by College')),
-      menuItem('Value by Draft Position', tabName = 'item3', icon = icon('Value by Draft Position')),
-      menuItem('Pick Value by Team', tabName = 'item4', icon = icon('Pick Value by Team'))
-  ),
-    selectizeInput('selected', 'Select Visualization:', choice = c('Graph', 'Dataset')),
-    selectizeInput('selected1', 'Sort By:', choice = c('Value Over Replacement' = 'VORP', 'Average Value Over Replacement' = 'avg_VORP', 'Differential in Value Over Replacement' = 'vorp_diff'))
-  ),
-  dashboardBody(
-    tabItems(
-      tabItem(tabName = 'item1',
-              fluidPage(dataTableOutput('table1')),
-              fillPage(tags$style(type = "text/css", "#graph1 {height: calc(100vh - 80px) !important;}"),plotOutput('graph1'),height='100%'),
-              
+      menuItem(
+        'Draft Production by Team',
+        tabName = 'item1',
+        icon = icon('angle-right')
+      ),
+      menuItem(
+        'Draft Production by College',
+        tabName = 'item2',
+        icon = icon('angle-right')
+      ),
+      menuItem(
+        'Value by Draft Position',
+        tabName = 'item3',
+        icon = icon('angle-right')
+      ),
+      menuItem(
+        'Pick Value by Team',
+        tabName = 'item4',
+        icon = icon('angle-right')
+      )
     ),
-    tabItem(tabName = 'item2',
-            fluidPage(dataTableOutput('table2')),
-            fillPage(tags$style(type = "text/css", "#graph2 {height: calc(100vh - 80px) !important;}"),plotOutput('graph2'),height='100%')),
-    tabItem(tabName = 'item3',
-            fluidPage(dataTableOutput('table3')),
-            fillPage(tags$style(type = "text/css", "#graph3 {height: calc(100vh - 80px) !important;}"),plotOutput('graph3'),height='100%')),
-    tabItem(tabName = 'item4',
-            fluidPage(dataTableOutput('table4')),
-            fillPage(tags$style(type = "text/css", "#graph4 {height: calc(100vh - 80px) !important;}"),plotOutput('graph4'),height='100%'))
+    selectizeInput(
+      'selected',
+      'Select Visualization:',
+      choice = c('Dataset', 'Graph')
+    ),
+    selectizeInput(
+      'selected1',
+      'Sort by:',
+      choice = c(
+        'Value Over Replacement' = 'VORP',
+        'Average Value Over Replacement' = 'avg_VORP',
+        'Differential in Value Over Replacement' = 'vorp_diff'
+      )
+    ),
+    selectizeInput(
+      'selected2',
+      'Filter by:',
+      choice = c('All', 'Top 5', 'Top 10', 'Bottom 5', 'Bottom 10')
+    )
+  ),
+  dashboardBody(tabItems(
+    tabItem(
+      tabName = 'item1', h1('DRAFT PRODUCTION BY TEAM'),
+      fluidRow(dataTableOutput('table1')),
+      fillPage(
+        tags$style(type = "text/css", "#graph1 {height: calc(100vh - 80px) !important;}"),
+        plotOutput('graph1'),
+        height = '100%'
+      ),
+      
+    ),
+    tabItem(
+      tabName = 'item2', h1('DRAFT PRODUCTION BY COLLEGE'),
+      fluidRow(dataTableOutput('table2')),
+      fillPage(
+        tags$style(type = "text/css", "#graph2 {height: calc(100vh - 80px) !important;}"),
+        plotOutput('graph2'),
+        height = '100%'
+      )
+    ),
+    tabItem(
+      tabName = 'item3', h1('VALUE BY DRAFT POSITION'),
+      fluidRow(dataTableOutput('table3')),
+      fillPage(
+        tags$style(type = "text/css", "#graph3 {height: calc(100vh - 80px) !important;}"),
+        plotOutput('graph3'),
+        height = '100%'
+      )
+    ),
+    tabItem(
+      tabName = 'item4', h1('PICK VALUE BY TEAM'),
+      fluidRow(dataTableOutput('table4')),
+      fillPage(
+        tags$style(type = "text/css", "#graph4 {height: calc(100vh - 80px) !important;}"),
+        plotOutput('graph4'),
+        height = '100%'
+      )
+    )
     
     
-  )
-)))
+  ))
+))
