@@ -44,7 +44,7 @@ shinyUI(dashboardPage(
       choice = c(
         'Value Over Replacement' = 'VORP',
         'Average Value Over Replacement' = 'avg_VORP',
-        'DValue Over Replacement Differential' = 'vorp_diff'
+        'Value Over Replacement Differential' = 'vorp_diff'
       )
     ),
     selectizeInput(
