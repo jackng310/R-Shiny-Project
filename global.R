@@ -1,7 +1,7 @@
 library(shiny)
 library(shinydashboard)
 library(DT)
-setwd("/Applications/NYCDSA/r_shiny_proj")
+#setwd("/Applications/NYCDSA/r_shiny_proj")
 library(tidyverse)
 library(ggplot2)
 library(shinythemes)

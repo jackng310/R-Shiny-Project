@@ -1,9 +1,14 @@
 
 
-shinyUI(dashboardPage(skin = 'black',
-  dashboardHeader(title = span("Value of an", 
-                               span("NBA DRAFT PICK", 
-                                    style = "color: red; font-size: 13px"))),
+
+
+shinyUI(dashboardPage(
+  skin = 'black',
+  dashboardHeader(title = span(
+    "Value of an",
+    span("NBA DRAFT PICK",
+         style = "color: red; font-size: 13px")
+  )),
   dashboardSidebar(
     sidebarUserPanel("NBA Draft Data from 1989-2016"),
     sidebarMenu(
@@ -50,8 +55,9 @@ shinyUI(dashboardPage(skin = 'black',
   ),
   dashboardBody(tabItems(
     tabItem(
-      tabName = 'item1', h1('DRAFT PRODUCTION BY TEAM',style="line-height: 0px;margin-top: 0;"),
-      fluidRow(dataTableOutput('table1')),
+      tabName = 'item1',
+      h1('DRAFT PRODUCTION BY TEAM'),
+      fluidPage(dataTableOutput('table1')),
       fluidPage(
         tags$style(type = "text/css", "#graph1 {height: calc(100vh - 80px) !important;}"),
         plotOutput('graph1'),
@@ -60,8 +66,9 @@ shinyUI(dashboardPage(skin = 'black',
       
     ),
     tabItem(
-      tabName = 'item2', h1('DRAFT PRODUCTION BY COLLEGE',style="line-height: 0px;margin-top: 0;"),
-      fluidRow(dataTableOutput('table2')),
+      tabName = 'item2',
+      h1('DRAFT PRODUCTION BY COLLEGE'),
+      fluidPage(dataTableOutput('table2')),
       fluidPage(
         tags$style(type = "text/css", "#graph2 {height: calc(100vh - 80px) !important;}"),
         plotOutput('graph2'),
@@ -69,8 +76,9 @@ shinyUI(dashboardPage(skin = 'black',
       )
     ),
     tabItem(
-      tabName = 'item3', h1('VALUE BY DRAFT POSITION',style="line-height: 0px;margin-top: 0;"),
-      fluidRow(dataTableOutput('table3')),
+      tabName = 'item3',
+      h1('VALUE BY DRAFT POSITION'),
+      fluidPage(dataTableOutput('table3')),
       fluidPage(
         tags$style(type = "text/css", "#graph3 {height: calc(100vh - 80px) !important;}"),
         plotOutput('graph3'),
@@ -78,8 +86,9 @@ shinyUI(dashboardPage(skin = 'black',
       )
     ),
     tabItem(
-      tabName = 'item4', h1('PICK VALUE BY TEAM',style="line-height: 0px;margin-top: 0;"),
-      fluidRow(dataTableOutput('table4')),
+      tabName = 'item4',
+      h1('PICK VALUE BY TEAM'),
+      fluidPage(dataTableOutput('table4')),
       fluidPage(
         tags$style(type = "text/css", "#graph4 {height: calc(100vh - 80px) !important;}"),
         plotOutput('graph4'),
